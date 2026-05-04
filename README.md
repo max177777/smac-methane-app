@@ -1,4 +1,4 @@
-# SMAC — Subnational Methane Atlas & Chat
+# SMAC — Subnational Methane & AI Chat 2026
 
 A Streamlit prototype that translates Climate TRACE methane data into structured
 policy guidance for subnational governments.
