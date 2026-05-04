@@ -18,17 +18,17 @@ inject_theme()
 col1, col2 = st.columns([1.4, 1], gap="large")
 
 with col1:
-    eyebrow("Subnational Climate Decision Tool · 2026")
+    eyebrow("AI Methane Decision Assistant V1")
     st.markdown(
         "<h1 style='margin-bottom:0;'>Translating <em>methane data</em> into "
-        "<span style='color:var(--copper);font-style:italic;'>policy pathways.</span></h1>",
+        "<span style='color:var(--copper);font-style:italic;'>policy ACTIONS.</span></h1>",
         unsafe_allow_html=True,
     )
     st.markdown(
         '<p style="font-family:Fraunces,serif;font-size:18px;line-height:1.55;'
         'color:var(--ink-soft);max-width:520px;margin-top:24px;font-weight:300;">'
-        "An AI-assisted reasoning interface for subnational governments. Eleven countries, "
-        "280+ subnational units, 48 months of methane emissions data — paired with a chat that "
+        "An AI-assisted reasoning interface for subnational governments and organizations,"
+        "integrating 48 months of methane emissions data across all SMAC members with over 300+ subnational level data — paired with a chat that "
         "reasons through IPCC GWP frameworks and policy context."
         "</p>",
         unsafe_allow_html=True,
@@ -40,7 +40,7 @@ with col1:
         if st.button("Open Chat →", use_container_width=True, type="primary"):
             st.switch_page("pages/4_Chat.py")
     with cta2:
-        if st.button("Browse Atlas", use_container_width=True):
+        if st.button("SMAC GROUP", use_container_width=True):
             st.switch_page("pages/2_Atlas.py")
 
 with col2:
@@ -54,11 +54,11 @@ with col2:
           <div style="font-family:Fraunces,serif;font-size:42px;font-weight:300;letter-spacing:-0.02em;line-height:1;">
             {len(COUNTRY_ORDER)}<span style="font-family:JetBrains Mono,monospace;font-size:11px;color:var(--ink-soft);margin-left:6px;letter-spacing:0.1em;">countries</span>
           </div>
-          <div style="font-family:JetBrains Mono,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink-soft);text-align:right;max-width:180px;line-height:1.4;">Pre-loaded Atlas coverage</div>
+          <div style="font-family:JetBrains Mono,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink-soft);text-align:right;max-width:180px;line-height:1.4;">FROM SMAC MEMBERS</div>
         </div>
         <div style="border-top:1px solid var(--line);padding:20px 0;display:flex;justify-content:space-between;align-items:baseline;">
           <div style="font-family:Fraunces,serif;font-size:42px;font-weight:300;letter-spacing:-0.02em;line-height:1;">
-            {total_loc}<span style="font-family:JetBrains Mono,monospace;font-size:11px;color:var(--ink-soft);margin-left:6px;letter-spacing:0.1em;">subunits</span>
+            {total_loc}<span style="font-family:JetBrains Mono,monospace;font-size:11px;color:var(--ink-soft);margin-left:6px;letter-spacing:0.1em;">subnational locations</span>
           </div>
           <div style="font-family:JetBrains Mono,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink-soft);text-align:right;max-width:180px;line-height:1.4;">States, provinces, autonomous regions</div>
         </div>
@@ -72,7 +72,7 @@ with col2:
           <div style="font-family:Fraunces,serif;font-size:42px;font-weight:300;letter-spacing:-0.02em;line-height:1;">
             {fmt_mt(total_2024)}<span style="font-family:JetBrains Mono,monospace;font-size:11px;color:var(--ink-soft);margin-left:6px;letter-spacing:0.1em;">Mt CH₄</span>
           </div>
-          <div style="font-family:JetBrains Mono,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink-soft);text-align:right;max-width:180px;line-height:1.4;">Combined 2024 atlas emissions</div>
+          <div style="font-family:JetBrains Mono,monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink-soft);text-align:right;max-width:180px;line-height:1.4;">Combined 2024 SMAC emissions</div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -82,14 +82,14 @@ st.markdown("---")
 
 # ============== WORKFLOW ==============
 eyebrow("Methodology")
-st.markdown("<h2 style='font-size:2.2rem;margin-bottom:32px;'>Five-stage <em>reasoning pipeline</em>, not a static dashboard.</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='font-size:2.2rem;margin-bottom:32px;'>Five-stage <em>reasoning pipeline</em>.</h2>", unsafe_allow_html=True)
 
 flow_steps = [
-    ("01 / DATA", "Ingest", "Climate TRACE monthly methane at subnational resolution; 11 countries pre-loaded."),
-    ("02 / INVENT.", "Reconcile", "Time-series check, year-over-year drift, location-level uncertainty flagging."),
-    ("03 / INSIGHT", "Interpret", "CH₄ → CO₂e under both GWP100 and GWP20; hotspot detection by subunit."),
-    ("04 / DECISION", "Reason", "AI chat synthesizes data, policy context, and method into a structured answer."),
-    ("05 / PATHWAYS", "Recommend", "Mitigation actions sequenced by abatement density, with greenwashing checks."),
+    ("01 / DATA", "Load", "Monthly methane data from Climate TRACE across SMAC countries, down to subnational units."),
+    ("02 / CLEAN", "Check", "Validate time trends, detect unusual changes, and flag uncertainty at the local level."),
+    ("03 / INSIGHT", "Translate", "Convert CH₄ into CO₂e using IPCC GWP100 and GWP20, and identify emission hotspots."),
+    ("04 / DECISION", "Reason", "AI chat connects data with policy context and explains what is happening and why."),
+    ("05 / ACTION", "Recommend", "Suggest mitigation pathways based on impact, while flagging potential greenwashing risks."),
 ]
 flow_cols = st.columns(5)
 for i, (num, title, desc) in enumerate(flow_steps):
@@ -113,8 +113,8 @@ st.markdown("<br>", unsafe_allow_html=True)
 st.markdown("---")
 
 # ============== COUNTRY GRID ==============
-eyebrow("The Atlas")
-st.markdown("<h2 style='font-size:2.2rem;margin-bottom:32px;'>Eleven countries, <em>distinct policy textures.</em></h2>", unsafe_allow_html=True)
+eyebrow("THE SMAC")
+st.markdown("<h2 style='font-size:2.2rem;margin-bottom:32px;'>Eleven countries (add more later), <em>distinct policy textures.</em></h2>", unsafe_allow_html=True)
 
 # Build a 3-column responsive grid
 cols_per_row = 3
@@ -161,7 +161,7 @@ for row_start in range(0, len(COUNTRY_ORDER), cols_per_row):
 st.markdown("<br><br>", unsafe_allow_html=True)
 st.markdown(
     '<div style="text-align:center;font-family:JetBrains Mono,monospace;font-size:10px;color:var(--ink-soft);letter-spacing:0.14em;text-transform:uppercase;padding:24px 0;border-top:1px solid var(--line);">'
-    'smac prototype <span style="color:var(--copper);">✦</span> climate trace data · 2021–2024 <span style="color:var(--copper);">✦</span> ai responses are scripted · not for policy use'
+    'smac prototype <span style="color:var(--copper);">✦</span> climate trace data · 2021–2024 <span style="color:var(--copper);">✦</span> TESTING '
     '</div>',
     unsafe_allow_html=True,
 )
